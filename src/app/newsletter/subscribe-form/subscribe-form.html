@@ -1,0 +1,108 @@
+<div class="card">
+    <div class="card-header">
+        {{ pageHeader() }}
+    </div>
+    <div class="card-body">
+        <form>
+            <div class="row">
+                <label class="row-label" for="firstNameId">First Name</label>
+                <div class="row-value">
+                    <input type="text" class="form-control" [formField]="subscribeForm.firstName" id="firstNameId"
+                        placeholder="First Name (optional)" />
+                </div>
+            </div>
+            <div class="row">
+                <label class="row-label" for="lastNameId">Last Name</label>
+                <div class="row-value">
+                    <input type="text" class="form-control" [formField]="subscribeForm.lastName" id="lastNameId"
+                        placeholder="Last Name (optional)" />
+                </div>
+            </div>
+            <div class="row">
+                <label class="row-label" for="yearsAsFanId">Years as a Fan</label>
+                <div class="row-value">
+                    <input type="number" class="form-control" [formField]="subscribeForm.yearsAsFan" id="yearsAsFanId"
+                        placeholder="0" />
+                </div>
+                @if (subscribeForm.yearsAsFan().invalid() && subscribeForm.yearsAsFan().touched()) {
+                <div class="alert alert-danger">
+                    @for (error of subscribeForm.yearsAsFan().errors(); track error.kind) {
+                    <div>{{ error.message }}</div>
+                    }
+                </div>
+                }
+            </div>
+            <div class="row">
+                <label class="row-label">Send via</label>
+                <div class="row-value send-via-group">
+                    <label class="send-via-option">
+                        <input type="checkbox" class="form-check-input" [formField]="subscribeForm.sendViaEmail"
+                            id="sendViaEmailId" />
+                        <span>Email</span>
+                    </label>
+                    <label class="send-via-option">
+                        <input type="checkbox" class="form-check-input" [formField]="subscribeForm.sendViaText"
+                            id="sendViaTextId" />
+                        <span>Text</span>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <label class="row-label" for="emailId">
+                    Email
+                    @if (subscribeForm.email().required()) {
+                    <span class="text-danger">*</span>
+                    } @else {
+                    <span class="field-optional">(optional)</span>
+                    }
+                </label>
+                <div class="row-value">
+                    <input type="email" class="form-control" [formField]="subscribeForm.email" id="emailId"
+                        placeholder="your@email.com" />
+                </div>
+                @if (subscribeForm.email().invalid() && subscribeForm.email().touched()) {
+                <div class="alert alert-danger">
+                    @for (error of subscribeForm.email().errors(); track error.kind) {
+                    <div>{{ error.message }}</div>
+                    }
+                </div>
+                }
+            </div>
+            <div class="row">
+                <label class="row-label" for="phoneId">
+                    Phone
+                    @if (subscribeForm.phone().required()) {
+                    <span class="text-danger">*</span>
+                    } @else {
+                    <span class="field-optional">(optional)</span>
+                    }
+                </label>
+                <div class="row-value">
+                    <input type="tel" class="form-control" [formField]="subscribeForm.phone" id="phoneId"
+                        placeholder="+1 555 000 0000" />
+                    <span class="field-hint">Between 7 and 15 characters.</span>
+                </div>
+                @if (subscribeForm.phone().invalid() && subscribeForm.phone().touched()) {
+                <div class="alert alert-danger">
+                    @for (error of subscribeForm.phone().errors(); track error.kind) {
+                    <div>{{ error.message }}</div>
+                    }
+                </div>
+                }
+            </div>
+            <div class="row">
+                <div class="row-value">
+                    <button type="button" class="btn btn-primary" (click)="subscribe()">
+                        Subscribe
+                    </button>
+                    <button type="button" class="btn btn-secondary" (click)="cancel()">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </form>
+        @if (subscribeMessage()) {
+        <div class="alert alert-success">{{ subscribeMessage() }}</div>
+        }
+    </div>
+</div>

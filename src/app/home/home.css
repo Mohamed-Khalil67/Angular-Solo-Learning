@@ -1,0 +1,15 @@
+.home-page {
+  padding: 2rem 0;
+}
+
+.home-page h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #3d2b1a;
+  margin-bottom: 0.5rem;
+}
+
+.home-page p {
+  color: #7a5c44;
+  font-size: 0.95rem;
+}

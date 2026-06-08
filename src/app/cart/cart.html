@@ -1,0 +1,25 @@
+<h1>Shopping Cart</h1>
+<select (input)="onSelect($event)">
+    <option value="" disabled selected>Select quantity</option>
+    @for (item of qtyAvailable(); track item){
+    <option [value]="item.name">{{item.name}}</option>
+    }
+</select>
+<br>
+<label for="">Item selected: {{ selectedItem()?.name}}</label>
+<br>
+<label for="">Item Stock: {{ selectedItem()?.stock}}</label>
+<br>
+<label for="">Item price: {{ selectedItem()?.price}}</label>
+<br>
+<input type="number" [value]="quantity()" (input)="onQuantity($event)">
+<div>Qauntity : {{ quantity() }}</div>
+<br>
+<button type="submit" (click)="onAddToCart()" [disabled]="!selectedItem() || selectedItem()!.stock === 0">Add to
+    Cart</button>
+
+<br>
+@for (product of basket(); track product) {
+<div>{{ product.name }} — qty: {{ product.quantity }} — price: {{ product.price }}</div>
+}
+<div>Total Price: {{totalPrice()}}$</div>

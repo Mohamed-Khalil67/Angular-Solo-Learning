@@ -1,0 +1,111 @@
+<form [formGroup]="myForm">
+    <input type="text" formControlName="name" />
+
+    @if (myForm.get('name')?.hasError('required')) {
+    <div>Name is required</div>
+    }
+
+    <button type="button" (click)="toggleValidation()">Toggle Validation</button>
+</form>
+<div class="bg-light d-flex align-items-center justify-content-center min-vh-100">
+    <div class="card shadow-sm p-4" style="width: 100%; max-width: 480px;">
+        <h5 class="card-title mb-4">User Form</h5>
+
+        <form [formGroup]="userForm">
+
+            <!-- ID -->
+            <div class="mb-3">
+                <label class="form-label">ID</label>
+                <input type="text" formControlName="id" class="form-control"
+                    [class.is-invalid]="id.invalid && id.touched" placeholder="Id" />
+                @if (id.invalid && id.touched) {
+                <div class="invalid-feedback d-block">
+                    @if (id.errors?.['pattern']) {
+                    <span>ID must contain numbers only.</span>
+                    }
+                </div>
+                }
+            </div>
+
+            <!-- Name -->
+            <div class="mb-3">
+                <label class="form-label">Full Name</label>
+                <input type="text" formControlName="name" class="form-control"
+                    [class.is-invalid]="name.invalid && name.touched" placeholder="Jane Smith" />
+                @if (name.invalid && name.touched) {
+                <div class="invalid-feedback d-block">
+                    @if (name.errors?.['required']) {
+                    <span>Name is required.</span>
+                    }
+                    @if (name.errors?.['minlength']) {
+                    <span>Minimum 5 characters.</span>
+                    }
+                </div>
+                }
+            </div>
+
+            <!-- Username -->
+            <div class="mb-3">
+                <label class="form-label">Username</label>
+                <input type="text" formControlName="username" class="form-control"
+                    [class.is-invalid]="username.invalid && username.touched" placeholder="janesmith" />
+                @if (username.invalid && username.touched) {
+                <div class="invalid-feedback d-block">Username is required.</div>
+                }
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" formControlName="email" class="form-control"
+                    [class.is-invalid]="email.invalid && email.touched" placeholder="jane@example.com" />
+                @if (email.invalid && email.touched) {
+                <div class="invalid-feedback d-block">
+                    @if (email.errors?.['required']) {
+                    <span>Email is required.</span>
+                    }
+                    @if (email.errors?.['email']) {
+                    <span>Enter a valid email.</span>
+                    }
+                </div>
+                }
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" formControlName="password" class="form-control"
+                    [class.is-invalid]="password.invalid && password.touched" placeholder="••••••••" />
+                @if (password.invalid && password.touched) {
+                <div class="invalid-feedback d-block">
+                    @if (password.errors?.['required']) {
+                    <span>Password is required.</span>
+                    }
+                    @if (password.errors?.['minlength']) {
+                    <span>Minimum 8 characters.</span>
+                    }
+                </div>
+                }
+            </div>
+
+            <!-- City & State -->
+            <div class="row mb-3">
+                <div class="col">
+                    <label class="form-label">City</label>
+                    <input type="text" formControlName="city" class="form-control" placeholder="Cairo" />
+                </div>
+                <div class="col">
+                    <label class="form-label">State</label>
+                    <input type="text" formControlName="state" class="form-control" placeholder="Cairo Gov." />
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="d-flex gap-2 justify-content-end">
+                <button type="button" class="btn btn-outline-secondary" (click)="resetForm()">Reset</button>
+                <button type="button" class="btn btn-primary" (click)="submitForm()">Save</button>
+            </div>
+
+        </form>
+    </div>
+</div>

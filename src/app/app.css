@@ -1,0 +1,57 @@
+/* Layout wrapper needed */
+.app-layout {
+  display: flex;
+  height: 100vh;
+}
+
+.app-header {
+  background: #3a2510;
+  padding: 2rem 0; /* vertical padding instead of horizontal */
+  display: flex;
+  flex-direction: column; /* stack items vertically */
+  align-items: stretch; /* full width items */
+  gap: 2rem;
+  border-bottom: none; /* remove bottom border */
+  border-right: 2px solid #c9874e; /* ✅ right border instead */
+  width: 220px; /* fixed sidebar width */
+  min-height: 100vh; /* full height */
+  overflow-y: scroll;
+}
+
+.tab-nav {
+  display: flex;
+  flex-direction: column; /* ✅ stack links vertically */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tab-nav a {
+  display: block;
+  padding: 1rem 1.5rem;
+  color: #c4a480;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-bottom: none; /* remove bottom border */
+  border-left: 3px solid transparent; /* ✅ left border instead */
+}
+
+.tab-nav a:hover {
+  color: #f0dcc0;
+  background: rgba(255, 255, 255, 0.05); /* subtle hover background */
+}
+
+.tab-nav a.active {
+  color: #f5e2c8;
+  border-left-color: #c9874e; /* ✅ highlight on left side */
+  background: rgba(201, 135, 78, 0.1);
+}
+
+.app-content {
+  flex: 1; /* ✅ takes remaining width */
+  max-width: 880px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  overflow-y: auto;
+}

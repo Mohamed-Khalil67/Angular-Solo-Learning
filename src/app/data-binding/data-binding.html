@@ -1,0 +1,39 @@
+<table style="border: 1px black solid; border-collapse: collapse ;">
+    <thead>
+        <tr>
+            <td colspan="3" style="text-align: center;">
+                {{ title }}
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                {{demo1}}
+            </td>
+            <td>
+                <input [type]="demo2" [placeholder]="demo3" [value]="title" [(ngModel)]="title">
+            </td>
+            <td>
+                <p [class]="css1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, sit?</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input [type]="inputType">
+                <button (click)="showWelcomeMessage()">Click For Welcome</button>
+            </td>
+            <td>
+                <select name="" id="" (change)="onSelectChange($event)">
+                    <option value="One">One</option>
+                    <option value="Two">Two</option>
+                    <option value="Three">Three</option>
+                </select>
+            </td>
+            <td>
+                <button (click)="onButtonChangeName('Java')">Change Title to Java</button>
+                <button (click)="onButtonChangeName('DotNet')">Change title to DotNet</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
