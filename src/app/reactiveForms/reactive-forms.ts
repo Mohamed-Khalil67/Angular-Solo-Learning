@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -13,6 +13,7 @@ import {
   selector: 'app-reactive-forms',
   imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './reactive-forms.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './reactive-forms.css',
 })
 export class ReactiveForms {

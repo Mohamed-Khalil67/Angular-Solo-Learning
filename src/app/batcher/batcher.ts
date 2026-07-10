@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal, ChangeDetectionStrategy } from '@angular/core';
 
 export interface User {
   id: number;
@@ -12,6 +12,7 @@ export interface User {
   selector: 'app-batcher',
   imports: [],
   templateUrl: './batcher.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './batcher.css',
 })
 export class Batcher implements OnInit {

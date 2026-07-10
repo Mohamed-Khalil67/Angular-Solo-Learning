@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, signal, ChangeDetectionStrategy } from '@angular/core';
 
 export interface product {
   name: string;
@@ -16,6 +16,7 @@ export interface BasketItem {
   selector: 'app-cart',
   imports: [],
   templateUrl: './cart.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './cart.css',
 })
 export class Cart {

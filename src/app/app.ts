@@ -1,4 +1,4 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, inject, ChangeDetectionStrategy } from '@angular/core';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { filter, map } from 'rxjs';
@@ -9,6 +9,7 @@ const TOPIC_PATHS = ['/signal', '/computed', '/effect', '/inputs'];
   selector: 'app-root',
   imports: [RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./app.css'],
 })
 export class App {
@@ -16,13 +17,11 @@ export class App {
 
   private currentUrl = toSignal(
     this.router.events.pipe(
-      filter(e => e instanceof NavigationEnd),
-      map(e => (e as NavigationEnd).urlAfterRedirects),
+      filter((e) => e instanceof NavigationEnd),
+      map((e) => (e as NavigationEnd).urlAfterRedirects),
     ),
     { initialValue: this.router.url },
   );
 
-  isTopicActive = computed(() =>
-    TOPIC_PATHS.some(p => this.currentUrl().startsWith(p)),
-  );
+  isTopicActive = computed(() => TOPIC_PATHS.some((p) => this.currentUrl().startsWith(p)));
 }

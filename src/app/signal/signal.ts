@@ -1,9 +1,10 @@
-import { Component, Signal, signal } from '@angular/core';
+import { Component, Signal, signal, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-signal',
   imports: [],
   templateUrl: './signal.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './signal.css',
 })
 export class SignalComponent {

@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject, signal } from '@angular/core';
+import { Component, DestroyRef, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { interval, Subscription } from 'rxjs';
 
@@ -6,6 +6,7 @@ import { interval, Subscription } from 'rxjs';
   selector: 'app-live',
   imports: [],
   templateUrl: './live.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './live.css',
 })
 export class Live {

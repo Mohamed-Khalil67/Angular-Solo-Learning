@@ -1,5 +1,5 @@
 import { JsonPipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 
@@ -7,6 +7,7 @@ import { NgForm } from '@angular/forms';
   selector: 'app-user-master',
   imports: [FormsModule],
   templateUrl: './user-master.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './user-master.css',
 })
 export class UserMaster {
