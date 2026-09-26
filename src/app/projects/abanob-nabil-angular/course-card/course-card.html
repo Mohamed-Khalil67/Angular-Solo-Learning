@@ -1,0 +1,60 @@
+<!-- <div
+  class="relative flex min-w-0 flex-col rounded-md border border-black/15 bg-white break-words"
+  style="width: 18rem"
+  [ngClass]="course().category == 'BEGINNER' ? 'beginner' : ''"
+>
+  @if (course().iconUrl) {
+    <img [src]="course()?.iconUrl" class="w-full rounded-t-md" alt="Card Image" />
+  } @else {
+    <h1 class="mb-2 text-[2.5rem] leading-tight font-medium">No Image Available</h1>
+  }
+  <div class="flex-auto p-4">
+    <h5 class="mb-2 text-xl leading-tight font-medium">{{ course()?.description }}</h5>
+    <p class="mb-4">{{ course()?.longDescription }}</p>
+
+    <button (click)="onCourseViewed()" class="inline-block cursor-pointer rounded-md border px-3 py-1.5 text-center text-base leading-normal transition-colors focus-visible:ring-4 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-65 border-blue-600 bg-blue-600 text-white hover:border-blue-700 hover:bg-blue-700 focus-visible:ring-blue-600/50">View Course</button>
+  </div>
+</div> -->
+<div class="relative flex min-w-0 flex-col rounded-md border border-black/15 bg-white break-words" style="width: 18rem" [ngClass]="cardClasses()">
+  <!-- @if (course().iconUrl) {
+    <img [src]="course()?.iconUrl" class="w-full rounded-t-md" alt="Card Image" />
+  } @else {
+    <h1 class="mb-2 text-[2.5rem] leading-tight font-medium">No Image Available</h1>
+  } -->
+  <!-- telling angular that an html content is coming -->
+  <ng-content *ngIf="course().iconUrl; else noImage"></ng-content>
+
+  <ng-template #noImage>
+    <ng-container
+      *ngTemplateOutlet="noImageTpl; context: { description: course().description }"
+    ></ng-container>
+  </ng-template>
+
+  <div class="flex-auto p-4">
+    <!-- <ng-content></ng-content> -->
+
+    <h5 class="mb-2 text-xl leading-tight font-medium" [ngStyle]="{ 'text-decoration': 'underline', color: 'green' }">
+      {{ course()?.description }}
+    </h5>
+    <h3 class="mb-2 text-[1.75rem] leading-tight font-medium" appBasicHighLight [defaultColor]="'yellow'" [highlightColor]="'green'">
+      This is highlight directive
+    </h3>
+
+    <p class="mb-4">{{ course()?.longDescription }}</p>
+    @switch (course().category) {
+      @case ('BEGINNER') {
+        <span class="inline-block rounded-md px-[0.65em] py-[0.35em] text-xs leading-none font-bold whitespace-nowrap text-white bg-gray-500">{{ course().category }}</span>
+      }
+      @case ('INTERMEDIATE') {
+        <span class="inline-block rounded-md px-[0.65em] py-[0.35em] text-xs leading-none font-bold whitespace-nowrap text-white bg-green-700">{{ course().category }}</span>
+      }
+      @case ('ADVANCED') {
+        <span class="inline-block rounded-md px-[0.65em] py-[0.35em] text-xs leading-none font-bold whitespace-nowrap text-white bg-cyan-500">{{ course().category }}</span>
+      }
+      @default {
+        <h1 class="mb-2 text-[2.5rem] leading-tight font-medium">No Category</h1>
+      }
+    }
+    <button (click)="onCourseViewed()" class="inline-block cursor-pointer rounded-md border px-3 py-1.5 text-center text-base leading-normal transition-colors focus-visible:ring-4 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-65 border-blue-600 bg-blue-600 text-white hover:border-blue-700 hover:bg-blue-700 focus-visible:ring-blue-600/50">View Course</button>
+  </div>
+</div>

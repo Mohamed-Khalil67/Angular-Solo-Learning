@@ -17,7 +17,7 @@ export interface BasketItem {
   imports: [],
   templateUrl: './cart.html',
   changeDetection: ChangeDetectionStrategy.Eager,
-  styleUrl: './cart.css',
+  styleUrl: './cart.scss',
 })
 export class Cart {
   qtyAvailable = signal<product[]>([

@@ -45,6 +45,20 @@ export const routes: Routes = [
     path: 'batcher',
     loadComponent: () => import('./batcher/batcher').then((c) => c.Batcher),
   },
+  // Imported projects (src/app/projects/*)
+  {
+    path: 'projects/abanob-nabil-angular',
+    loadComponent: () => import('./projects/abanob-nabil-angular/app').then((c) => c.App),
+  },
+  {
+    path: 'projects/recipe-book',
+    loadComponent: () => import('./projects/recipe-book/app').then((c) => c.App),
+  },
+  {
+    path: 'projects/routing',
+    loadComponent: () => import('./projects/routing/app').then((c) => c.App),
+    loadChildren: () => import('./projects/routing/app.routes').then((m) => m.routes),
+  },
   { path: '', component: Home },
   { path: '**', component: PageNotFound },
 ];

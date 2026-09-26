@@ -1,0 +1,12 @@
+<div class="-mx-3 flex flex-wrap *:w-full *:max-w-full *:shrink-0 *:px-3">
+  <div class="md:w-2/3">
+    <h5 class="mb-2 text-xl leading-tight font-medium">{{ account().name }}</h5>
+  </div>
+  <hr class="my-4 opacity-25" />
+  <p class="mb-4">This account is {{ account().status }}</p>
+  <button class="inline-block cursor-pointer rounded-md border px-3 py-1.5 text-center text-base leading-normal transition-colors focus-visible:ring-4 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-65 border-blue-600 bg-transparent text-blue-600 hover:bg-blue-600 hover:text-white focus-visible:ring-blue-600/50 mr-4" (click)="onSetTo('Active')">Set to Active</button>
+  <button class="inline-block cursor-pointer rounded-md border px-3 py-1.5 text-center text-base leading-normal transition-colors focus-visible:ring-4 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-65 border-blue-600 bg-transparent text-blue-600 hover:bg-blue-600 hover:text-white focus-visible:ring-blue-600/50 mr-4" (click)="onSetTo('Inactive')">
+    Set to Inactive
+  </button>
+  <button class="inline-block cursor-pointer rounded-md border px-3 py-1.5 text-center text-base leading-normal transition-colors focus-visible:ring-4 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-65 border-blue-600 bg-transparent text-blue-600 hover:bg-blue-600 hover:text-white focus-visible:ring-blue-600/50 mr-4" (click)="onSetTo('Unknown')">Set to Unknown</button>
+</div>

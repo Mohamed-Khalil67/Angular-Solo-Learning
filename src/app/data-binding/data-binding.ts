@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
   imports: [FormsModule],
   templateUrl: './data-binding.html',
   changeDetection: ChangeDetectionStrategy.Eager,
-  styleUrl: './data-binding.css',
+  styleUrl: './data-binding.scss',
 })
 export class DataBinding {
   title = 'Data Binding';

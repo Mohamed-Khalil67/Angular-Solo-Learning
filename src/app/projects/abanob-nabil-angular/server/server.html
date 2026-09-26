@@ -1,0 +1,38 @@
+<button
+  type="submit"
+  (click)="onCreateServer()"
+  [id]="serverIdValue"
+  [disabled]="!allowedAddServer()"
+  class="inline-block cursor-pointer rounded-md border px-3 py-1.5 text-center text-base leading-normal transition-colors focus-visible:ring-4 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-65 border-blue-600 bg-blue-600 text-white hover:border-blue-700 hover:bg-blue-700 focus-visible:ring-blue-600/50"
+>
+  Add Server
+</button>
+<br />
+@if (isServerCreated) {
+  <p class="mb-4">Server Created Successfully</p>
+} @else {
+  <p class="mb-4">No Server Created</p>
+}
+<h1 class="mb-2 text-[2.5rem] leading-tight font-medium">{{ serverCreationStatus }}</h1>
+<br />
+<p class="mb-4">Server with id equal {{ serverId }} with status equal {{ serverStatus }}</p>
+<br />
+<p class="mb-4">Server with id equal {{ serverId }} with status equal {{ getServerStatus() }}</p>
+<br />
+<input type="text" id="serverName" name="serverName" class="block w-full rounded-md border border-zinc-300 bg-white px-3 py-1.5 text-base leading-normal text-zinc-900 transition-shadow focus:border-blue-300 focus:ring-4 focus:ring-blue-600/25 focus:outline-none" [(ngModel)]="serverName" />
+<br />
+<p class="mb-4">{{ serverName }}</p>
+<br />
+<div>
+  <h2 class="mb-2 text-[2rem] leading-tight font-medium" [ngStyle]="serverStyles">Welcome to Angular Course</h2>
+  <h1 class="mb-2 text-[2.5rem] leading-tight font-medium" [ngClass]="serverClasses">Welcome to Class Angular</h1>
+</div>
+<br />
+
+@for (item of servers; track $index) {
+  <h2 class="mb-2 text-[2rem] leading-tight font-medium">{{ item }}</h2>
+}
+
+@for (person of persons; track person.id) {
+  <h1 class="mb-2 text-[2.5rem] leading-tight font-medium">{{ person.name }}</h1>
+}

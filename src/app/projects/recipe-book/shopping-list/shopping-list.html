@@ -1,0 +1,13 @@
+<div class="flex">
+  <div class="flex w-full flex-col gap-4 md:w-5/6">
+    <app-shopping-edit></app-shopping-edit>
+    <hr>
+    <ul class="divide-y divide-gray-300 rounded-md border border-gray-300 bg-white">
+      @for (ingredient of ingredients; track ingredient) {
+        <a class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900" style="cursor: pointer;">
+          {{ ingredient.name }} - ({{ ingredient.amount }})
+        </a>
+      }
+    </ul>
+  </div>
+</div>

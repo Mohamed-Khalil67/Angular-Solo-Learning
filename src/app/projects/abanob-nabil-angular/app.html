@@ -1,0 +1,130 @@
+<div class="flex flex-col font-sans text-base leading-normal text-zinc-900">
+  <app-header></app-header>
+  <main class="grow bg-amber-100 py-6">
+    <!-- <app-server></app-server> -->
+    <!-- <div class="container mx-auto px-3">
+      <app-core
+        (serverCreated)="onServerAdded($event)"
+        (blueprintCreated)="onBlueprintAdded($event)"
+      ></app-core>
+
+      <div class="-mx-3 flex flex-wrap *:w-full *:max-w-full *:shrink-0 *:px-3">
+        <div class="mt-2">
+          <button class="inline-block cursor-pointer rounded-md border px-3 py-1.5 text-center text-base leading-normal transition-colors focus-visible:ring-4 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-65 border-blue-600 bg-blue-600 text-white hover:border-blue-700 hover:bg-blue-700 focus-visible:ring-blue-600/50" (click)="onChangeFirst()">Change first Element</button>
+          <button class="inline-block cursor-pointer rounded-md border px-3 py-1.5 text-center text-base leading-normal transition-colors focus-visible:ring-4 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-65 border-green-700 bg-green-700 text-white hover:border-green-800 hover:bg-green-800 focus-visible:ring-green-700/50" (click)="onDestroyFirst()">Change first Element</button>
+          <app-server-element
+            *ngFor="let serverElement of serverElements"
+            [element]="serverElement"
+            [name]="serverElement.name"
+          >
+            <p>
+              @if (serverElement.type == 'server') {
+                <strong class="text-red-600">{{ serverElement.content }} </strong>
+              } @else if (serverElement.type == 'bleuprint') {
+                <strong class="text-green-700">{{ serverElement.content }} </strong>
+              }
+            </p></app-server-element
+          >
+        </div>
+      </div>
+    </div> -->
+    <!-- "$" it's constant -->
+
+    <!-- <div #container class="container mx-auto px-3">
+      <div class="-mx-3 flex flex-wrap *:w-full *:max-w-full *:shrink-0 *:px-3">
+        @for (
+          course of courses;
+          track course.id;
+          let index = $index;
+          let count = $count;
+          let first = $first
+        ) {
+          <div class="lg:w-1/4">
+            {{ index }}
+
+            <app-course-card
+              #cardsList
+              (courseSelected)="onCourseSelected($event)"
+              [course]="course"
+            ></app-course-card>
+          </div>
+        } @empty {
+          <h1 class="mb-2 text-[2.5rem] leading-tight font-medium">No Courses found</h1>
+        }
+      </div>
+    </div> -->
+    <!-- <div #container>
+      <app-course-card
+        (courseSelected)="onCourseSelected($event)"
+        [course]="courses[0]"
+      ></app-course-card>
+      <app-course-card
+        #cardTwoRef
+        (courseSelected)="onCourseSelected($event)"
+        [course]="courses[1]"
+      ></app-course-card>
+      <app-course-card
+        (courseSelected)="onCourseSelected($event)"
+        [course]="courses[2]"
+      ></app-course-card>
+    </div> -->
+    <!-- 
+    <div *ngIf="courses[1] as courseTpl">
+      <app-course-card
+        class="salmon-theme"
+        #highlighter="high"
+        appHighlighted
+        (toggleHihglight)="onToggle($event)"
+        [highlighted]="true"
+        (courseSelected)="onCourseSelected($event)"
+        [course]="courseTpl"
+      >
+        [noImageTpl]="blankImage"
+
+        <ng-template #blankImage let-courseName="description">
+          {{ courseName }}
+          <p>No Image available</p>
+        </ng-template>
+
+        <ng-container
+          *ngTemplateOutlet="blankImage; context: { description: courseTpl.longDescription }"
+        ></ng-container>
+        <app-course-image
+          [imageUrl]="courseTpl.iconUrl"
+          (dblclick)="highlighter.toggle()"
+        ></app-course-image>
+
+        <div class="course-description">
+          {{ courseTpl.description }}
+        </div>
+
+        <h3 class="mb-2 text-[1.75rem] leading-tight font-medium">Total Lessons : 20</h3>
+        <h4 class="mb-2 text-2xl leading-tight font-medium">Total lectures : 40</h4>
+      </app-course-card>
+    </div>
+   -->
+
+    <!-- <div>
+      <div style="border: 1px solid black">
+        <button>App component</button>
+        <div>
+          <app-comp1> </app-comp1>
+          <app-comp2> </app-comp2>
+        </div>
+      </div>
+    </div> -->
+    <div class="container mx-auto px-3">
+      <div class="-mx-3 flex flex-wrap *:w-full *:max-w-full *:shrink-0 *:px-3">
+        <div class="md:w-2/3">
+          <app-new-account></app-new-account>
+          <hr class="my-4 opacity-25" />
+          <app-account
+            *ngFor="let acc of accounts; let i = index"
+            [id]="i"
+            [account]="acc"
+          ></app-account>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

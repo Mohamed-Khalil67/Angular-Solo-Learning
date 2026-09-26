@@ -1,20 +1,22 @@
+@use "tailwindcss";
+
 /* ── Global CSS variables ─────────────────────────────────── */
 :root {
   /* Warm brown palette */
-  --bg-page:       #faf6f0;
-  --bg-card:       #fffdf8;
-  --header-bg:     #3d2b1a;
+  --bg-page: #faf6f0;
+  --bg-card: #fffdf8;
+  --header-bg: #3d2b1a;
 
   /* Primary accent — sienna/warm brown */
   --primary-color: #8b5e3c;
-  --primary-dark:  #5c3d20;
+  --primary-dark: #5c3d20;
   --primary-light: #c9874e;
   --gradient-bronze: linear-gradient(135deg, #8b5e3c 0%, #5c3d20 100%);
 
   /* Text */
-  --text-primary:   #2c1a0e;
+  --text-primary: #2c1a0e;
   --text-secondary: #7a5c44;
-  --white:          #fffdf8;
+  --white: #fffdf8;
 
   /* Borders */
   --border-color: #d4b896;
@@ -30,9 +32,9 @@
   --spacing-xl: 2rem;
 
   /* Typography */
-  --font-size-sm:   0.875rem;
+  --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
-  --font-size-xl:   1.25rem;
+  --font-size-xl: 1.25rem;
   --font-weight-bold: 700;
 
   /* Misc */
@@ -42,7 +44,11 @@
 }
 
 /* ── Reset & base ─────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -52,9 +58,16 @@ body {
   background: var(--bg-page);
 }
 
-h1, h2, h3 { margin: 0 0 0.5rem 0; }
+h1,
+h2,
+h3 {
+  margin: 0 0 0.5rem 0;
+}
 
-pre, code { font-family: 'Consolas', 'Courier New', monospace; }
+pre,
+code {
+  font-family: 'Consolas', 'Courier New', monospace;
+}
 
 /* ── Card (used by newsletter) ───────────────────────────── */
 .card {

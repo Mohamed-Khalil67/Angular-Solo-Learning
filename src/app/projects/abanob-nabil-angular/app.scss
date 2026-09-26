@@ -1,0 +1,22 @@
+// App uses ViewEncapsulation.None, so these rules are global while this page is rendered.
+
+// Kept in Tailwind's `base` layer so utility classes on buttons (bg-*, text-*) still win,
+// as the old framework's button classes did.
+@layer base {
+  button {
+    background-color: blue;
+    color: white;
+  }
+}
+
+// Former global rule from the old styles.scss (used by the Highlighted directive).
+// `.card` / `.card-text` are now Tailwind utilities: the card root carries `break-words`
+// and the card text is the <p> inside it.
+.highlighted {
+  outline: 2px solid green;
+
+  .break-words,
+  .break-words p {
+    color: green;
+  }
+}

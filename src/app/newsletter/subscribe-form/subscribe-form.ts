@@ -7,7 +7,7 @@ import { initialData, Subscription, subscriptionSchema } from '../subscription';
   imports: [FormField],
   templateUrl: './subscribe-form.html',
   changeDetection: ChangeDetectionStrategy.Eager,
-  styleUrl: './subscribe-form.css',
+  styleUrl: './subscribe-form.scss',
 })
 export class SubscribeForm {
   subscribeMessage = signal('');

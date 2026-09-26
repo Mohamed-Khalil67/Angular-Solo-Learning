@@ -14,7 +14,7 @@ import {
   imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './reactive-forms.html',
   changeDetection: ChangeDetectionStrategy.Eager,
-  styleUrl: './reactive-forms.css',
+  styleUrl: './reactive-forms.scss',
 })
 export class ReactiveForms {
   myForm: FormGroup;

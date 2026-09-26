@@ -7,7 +7,7 @@ import { interval, Subscription } from 'rxjs';
   imports: [],
   templateUrl: './live.html',
   changeDetection: ChangeDetectionStrategy.Eager,
-  styleUrl: './live.css',
+  styleUrl: './live.scss',
 })
 export class Live {
   counter = signal(0);

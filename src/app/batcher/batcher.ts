@@ -13,7 +13,7 @@ export interface User {
   imports: [],
   templateUrl: './batcher.html',
   changeDetection: ChangeDetectionStrategy.Eager,
-  styleUrl: './batcher.css',
+  styleUrl: './batcher.scss',
 })
 export class Batcher implements OnInit {
   http = inject(HttpClient);

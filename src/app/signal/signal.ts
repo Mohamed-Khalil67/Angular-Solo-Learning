@@ -1,11 +1,11 @@
-import { Component, Signal, signal, ChangeDetectionStrategy } from '@angular/core';
+import { Component, WritableSignal, signal, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-signal',
   imports: [],
   templateUrl: './signal.html',
   changeDetection: ChangeDetectionStrategy.Eager,
-  styleUrl: './signal.css',
+  styleUrl: './signal.scss',
 })
 export class SignalComponent {
   courseName = signal('Angular');
@@ -13,7 +13,7 @@ export class SignalComponent {
   student = signal({ name: 'John', age: 25, city: 'New York' });
   cityList = signal(['New York', 'Los Angeles', 'Chicago']);
 
-  courseDuration: Signal<string> = signal('3 months');
+  courseDuration: WritableSignal<string> = signal('3 months');
   constructor() {
     setTimeout(() => {
       this.courseName.set('Angular Signals');
@@ -22,6 +22,6 @@ export class SignalComponent {
 
   changeCourse() {
     this.courseName.set('Java');
-    this.courseDuration.apply((duration: string) => duration + ' (updated)');
+    this.courseDuration.update((duration: string) => duration + ' (updated)');
   }
 }

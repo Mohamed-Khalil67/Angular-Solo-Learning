@@ -5,6 +5,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   selector: 'app-home',
   templateUrl: './home.html',
   changeDetection: ChangeDetectionStrategy.Eager,
-  styleUrls: ['./home.css'],
+  styleUrls: ['./home.scss'],
 })
 export class Home {}

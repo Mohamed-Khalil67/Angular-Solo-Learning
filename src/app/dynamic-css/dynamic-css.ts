@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
   imports: [NgClass, FormsModule, NgStyle],
   templateUrl: './dynamic-css.html',
   changeDetection: ChangeDetectionStrategy.Eager,
-  styleUrl: './dynamic-css.css',
+  styleUrl: './dynamic-css.scss',
 })
 export class DynamicCss {
   myClassName: string = 'bg-warning';

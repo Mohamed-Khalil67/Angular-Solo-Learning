@@ -1,0 +1,15 @@
+<nav class="flex items-center justify-between bg-slate-900 px-8 py-3 text-white shadow-[0_2px_8px_rgba(0,0,0,0.15)]">
+  <div class="flex items-center gap-2 text-[1.1rem] font-bold">
+    <span class="text-[1.3rem]">⚡</span>
+    <span>Angular Demo</span>
+  </div>
+  <div class="flex items-center gap-3">
+    <a routerLink="home" routerLinkActive="active" class="inline-flex items-center gap-[0.4rem] rounded-md px-[0.85rem] py-2 text-[0.9rem] font-medium text-slate-400 no-underline transition-all duration-150 hover:bg-white/8 hover:text-slate-50 [&.active]:bg-blue-500 [&.active]:font-semibold [&.active]:text-white">Home</a>
+    <a routerLink="servers" routerLinkActive="active" class="inline-flex items-center gap-[0.4rem] rounded-md px-[0.85rem] py-2 text-[0.9rem] font-medium text-slate-400 no-underline transition-all duration-150 hover:bg-white/8 hover:text-slate-50 [&.active]:bg-blue-500 [&.active]:font-semibold [&.active]:text-white">Servers</a>
+    <a routerLink="users" routerLinkActive="active" class="inline-flex items-center gap-[0.4rem] rounded-md px-[0.85rem] py-2 text-[0.9rem] font-medium text-slate-400 no-underline transition-all duration-150 hover:bg-white/8 hover:text-slate-50 [&.active]:bg-blue-500 [&.active]:font-semibold [&.active]:text-white">Users</a>
+  </div>
+</nav>
+
+<main class="block min-h-[calc(100vh-65px)] bg-slate-100 pb-12">
+  <router-outlet />
+</main>

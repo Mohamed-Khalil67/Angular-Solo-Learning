@@ -1,0 +1,32 @@
+<nav class="bg-gray-900 text-white">
+    <div class="flex flex-wrap items-center justify-between px-3 py-2 lg:flex-nowrap lg:justify-start">
+        <a class="mr-4 py-1 text-xl whitespace-nowrap">RECIPE WEBSITE</a>
+        <button class="cursor-pointer rounded-md border border-white/15 px-3 py-1 text-white/55 hover:text-white focus:ring-4 focus:ring-white/25 focus:outline-none lg:hidden" type="button"
+            aria-controls="navbarSupportedContent" [attr.aria-expanded]="navOpen()" aria-label="Toggle navigation" (click)="navOpen.set(!navOpen())">
+            <span class="my-2 block h-0.5 w-6 bg-current shadow-[0_-7px_0_currentColor,0_7px_0_currentColor]"></span>
+        </button>
+        <div [class.hidden]="!navOpen()" class="w-full lg:flex lg:w-auto lg:grow lg:items-center" id="navbarSupportedContent">
+            <ul class="mt-2 mb-2 flex flex-col lg:my-0 lg:flex-row">
+                <li>
+                    <a class="block cursor-pointer py-2 text-white lg:px-2" aria-current="page" role="button" tabindex="0" (click)="onSelect('recipe')">Recipes</a>
+                </li>
+                <li>
+                    <a class="block cursor-pointer py-2 text-white/55 hover:text-white/75 lg:px-2" role="button" tabindex="0" (click)="onSelect('shopping-list')">Shopping List</a>
+                </li>
+                <li #manage class="relative">
+                    <a class="block cursor-pointer py-2 text-white/55 hover:text-white/75 lg:px-2 after:ml-1 after:inline-block after:border-x-4 after:border-t-4 after:border-x-transparent after:border-t-current after:align-middle" role="button" tabindex="0"
+                        [attr.aria-expanded]="manageOpen()" (click)="manageOpen.set(!manageOpen())">
+                        Manage
+                    </a>
+                    <ul [class.hidden]="!manageOpen()" (click)="manageOpen.set(false)" class="z-10 min-w-40 rounded-md border border-white/15 bg-gray-800 py-2 lg:absolute lg:top-full lg:left-0 lg:mt-0.5 lg:shadow-lg">
+                        <li><a class="block cursor-pointer px-4 py-1 whitespace-nowrap text-white hover:bg-white/15 focus:bg-white/15 focus:outline-none" role="button" tabindex="0">Save Data</a></li>
+                        <li>
+                            <hr class="my-2 border-white/15">
+                        </li>
+                        <li><a class="block cursor-pointer px-4 py-1 whitespace-nowrap text-white hover:bg-white/15 focus:bg-white/15 focus:outline-none" role="button" tabindex="0">Fetch Data</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

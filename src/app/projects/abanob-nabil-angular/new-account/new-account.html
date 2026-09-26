@@ -1,0 +1,20 @@
+<div class="-mx-3 flex flex-wrap *:w-full *:max-w-full *:shrink-0 *:px-3">
+  <div class="md:w-2/3">
+    <div class="block">
+      <label class="inline-block" for="">Account Name : </label>
+      <input type="text" class="block w-full rounded-md border border-zinc-300 bg-white px-3 py-1.5 text-base leading-normal text-zinc-900 transition-shadow focus:border-blue-300 focus:ring-4 focus:ring-blue-600/25 focus:outline-none" #accountName />
+    </div>
+
+    <div class="block">
+      <select class="block w-full rounded-md border border-zinc-300 bg-white px-3 py-1.5 text-base leading-normal text-zinc-900 transition-shadow focus:border-blue-300 focus:ring-4 focus:ring-blue-600/25 focus:outline-none" name="" id="" #status>
+        <option value="Active">Active</option>
+        <option value="Inactive">Inactive</option>
+        <option value="Hidden">Hidden</option>
+      </select>
+    </div>
+
+    <button class="inline-block cursor-pointer rounded-md border px-3 py-1.5 text-center text-base leading-normal transition-colors focus-visible:ring-4 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-65 border-blue-600 bg-blue-600 text-white hover:border-blue-700 hover:bg-blue-700 focus-visible:ring-blue-600/50" (click)="onCreateAccount(accountName.value, status.value)">
+      Add account
+    </button>
+  </div>
+</div>

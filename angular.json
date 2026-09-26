@@ -5,6 +5,11 @@
     "packageManager": "npm"
   },
   "newProjectRoot": "projects",
+  "schematics": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  },
   "projects": {
     "angular-project1": {
       "projectType": "application",
@@ -22,10 +27,22 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/app/projects/abanob-nabil-angular/public",
+                "output": "/"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/app/projects/recipe-book/public",
+                "output": "/"
               }
             ],
-            "styles": ["node_modules/bootstrap/dist/css/bootstrap.min.css", "src/styles.css"],
-            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": [],
             "server": "src/main.server.ts",
             "outputMode": "server",
             "security": {

@@ -42,6 +42,17 @@
   background: rgba(255, 255, 255, 0.05); /* subtle hover background */
 }
 
+.tab-nav .nav-section {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem 0.5rem;
+  border-top: 1px solid rgba(201, 135, 78, 0.4);
+  color: #8a6a4a;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .tab-nav a.active {
   color: #f5e2c8;
   border-left-color: #c9874e; /* ✅ highlight on left side */

@@ -1,0 +1,24 @@
+<div class="flex">
+  <div class="w-full">
+    <form action="">
+      <div class="flex flex-col gap-4 md:flex-row">
+        <div class="md:w-5/12">
+          <label for="name">Name</label>
+          <input type="text" #nameInput class="block w-full rounded-md border border-gray-300 bg-white px-3 py-1.5 focus:border-blue-300 focus:ring-4 focus:ring-blue-600/25 focus:outline-none" id="name">
+        </div>
+        <div class="md:w-5/12">
+          <label for="amount">Amount</label>
+          <input type="text" #amountInput class="block w-full rounded-md border border-gray-300 bg-white px-3 py-1.5 focus:border-blue-300 focus:ring-4 focus:ring-blue-600/25 focus:outline-none" id="amount">
+        </div>
+      </div>
+      <br>
+      <div class="flex">
+        <div class="flex w-full gap-2">
+          <button class="cursor-pointer rounded-md px-3 py-1.5 text-white focus:ring-4 focus:outline-none bg-green-700 hover:bg-green-800 focus:ring-green-700/50" type="button" (click)="onAddItem()">Add</button>
+          <button class="cursor-pointer rounded-md px-3 py-1.5 text-white focus:ring-4 focus:outline-none bg-red-600 hover:bg-red-700 focus:ring-red-600/50" type="button">Delete</button>
+          <button class="cursor-pointer rounded-md px-3 py-1.5 text-white focus:ring-4 focus:outline-none bg-blue-600 hover:bg-blue-700 focus:ring-blue-600/50" type="button">Clear</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

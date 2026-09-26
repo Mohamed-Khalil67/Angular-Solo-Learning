@@ -1,0 +1,14 @@
+<div class="flex h-full cursor-pointer flex-col overflow-hidden rounded-md border border-gray-300 bg-white transition-shadow hover:shadow-md" (click)="onSelect(recipe())">
+  <img [src]="recipe().imagePath" class="w-full" [alt]="recipe().name">
+  <div class="p-4">
+    <h5 class="mb-2 text-xl font-medium">{{ recipe().name }}</h5>
+    <p class="mb-0">{{ recipe().description }}</p>
+  </div>
+  <ul class="divide-y divide-gray-300 border-t border-gray-300">
+    @for (ingredient of recipe().ingredients; track ingredient.name) {
+      <li class="px-4 py-2">{{ ingredient.name }} ({{ ingredient.amount }})</li>
+    } @empty {
+      <li class="px-4 py-2 text-gray-500">No ingredients.</li>
+    }
+  </ul>
+</div>

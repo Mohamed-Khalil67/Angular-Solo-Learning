@@ -1,0 +1,12 @@
+<br>
+<div class="flex">
+    <div class="w-full">
+        <div class="inline-block cursor-pointer rounded-md px-3 py-1.5 text-white focus:ring-4 focus:outline-none bg-blue-600 hover:bg-blue-700 focus:ring-blue-600/50">New Recipe</div>
+    </div>
+</div>
+<br>
+<div class="grid grid-cols-3 gap-x-6">
+    @for (recipeItem of recipes; track $index) {
+    <app-recipe-item class="mb-4" [recipe]="recipeItem"></app-recipe-item>
+    }
+</div>

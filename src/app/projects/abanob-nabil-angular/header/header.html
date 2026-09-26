@@ -1,0 +1,49 @@
+<nav class="relative flex flex-wrap items-center justify-between bg-zinc-800 py-2 text-base">
+  <div class="flex w-full flex-wrap items-center justify-between px-3">
+    <a class="mr-4 cursor-pointer py-1 text-xl whitespace-nowrap text-white no-underline" role="button">Navbar</a>
+    <button
+      class="cursor-pointer rounded-md border border-white/10 bg-transparent px-3 py-1 text-xl leading-none text-white/55 transition-shadow focus-visible:ring-4 focus-visible:ring-white/25 focus-visible:outline-none lg:hidden"
+      type="button"
+      aria-controls="navbarSupportedContent"
+      [attr.aria-expanded]="navOpen()"
+      (click)="navOpen.set(!navOpen())"
+      aria-label="Toggle navigation"
+    >
+      <span class="inline-block h-4 w-6 border-y-2 border-current bg-[linear-gradient(currentColor,currentColor)] bg-[length:100%_2px] bg-center bg-no-repeat align-middle"></span>
+    </button>
+    <div class="grow basis-full items-center lg:flex lg:basis-auto" [class.hidden]="!navOpen()" id="navbarSupportedContent">
+      <ul class="mr-auto mb-2 flex list-none flex-col pl-0 lg:mb-0 lg:flex-row">
+        <li class="block">
+          <a class="block cursor-pointer py-2 no-underline transition-colors lg:px-2 text-white" aria-current="page" role="button" tabindex="0">Home</a>
+        </li>
+        <li class="block">
+          <a class="block cursor-pointer py-2 no-underline transition-colors lg:px-2 text-white/55 hover:text-white/75" role="button" tabindex="0">Link</a>
+        </li>
+        <li #dropdown class="relative">
+          <a
+            class="block cursor-pointer py-2 no-underline transition-colors lg:px-2 whitespace-nowrap text-white/55 hover:text-white/75 after:ml-1 after:inline-block after:border-x-[0.3em] after:border-t-[0.3em] after:border-x-transparent after:border-t-current after:align-[0.255em]"
+            role="button"
+            tabindex="0"
+            [attr.aria-expanded]="dropdownOpen()"
+            (click)="dropdownOpen.set(!dropdownOpen())"
+          >
+            Dropdown
+          </a>
+          <ul class="static z-10 mt-0.5 min-w-40 list-none rounded-md border border-black/15 bg-white py-2 text-left text-base text-zinc-900 lg:absolute lg:top-full lg:left-0" [class.hidden]="!dropdownOpen()" (click)="dropdownOpen.set(false)">
+            <li><a class="block w-full cursor-pointer px-4 py-1 whitespace-nowrap no-underline hover:bg-zinc-100" role="button" tabindex="0">Action</a></li>
+            <li><a class="block w-full cursor-pointer px-4 py-1 whitespace-nowrap no-underline hover:bg-zinc-100" role="button" tabindex="0">Another action</a></li>
+            <li><hr class="my-2 border-black/15" /></li>
+            <li><a class="block w-full cursor-pointer px-4 py-1 whitespace-nowrap no-underline hover:bg-zinc-100" role="button" tabindex="0">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="block">
+          <a class="pointer-events-none block py-2 text-white/25 no-underline lg:px-2" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+      <form class="flex" role="search">
+        <input class="block w-full rounded-md border border-zinc-300 bg-white px-3 py-1.5 text-base leading-normal text-zinc-900 transition-shadow focus:border-blue-300 focus:ring-4 focus:ring-blue-600/25 focus:outline-none mr-2" type="search" placeholder="Search" aria-label="Search" />
+        <button class="inline-block cursor-pointer rounded-md border px-3 py-1.5 text-center text-base leading-normal transition-colors focus-visible:ring-4 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-65 border-green-700 bg-transparent text-green-700 hover:bg-green-700 hover:text-white focus-visible:ring-green-700/50" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>

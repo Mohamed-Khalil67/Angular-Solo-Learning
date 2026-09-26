@@ -8,7 +8,7 @@ import { NgForm } from '@angular/forms';
   imports: [FormsModule],
   templateUrl: './user-master.html',
   changeDetection: ChangeDetectionStrategy.Eager,
-  styleUrl: './user-master.css',
+  styleUrl: './user-master.scss',
 })
 export class UserMaster {
   userObject = {

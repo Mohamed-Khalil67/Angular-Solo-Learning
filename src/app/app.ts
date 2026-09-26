@@ -10,7 +10,7 @@ const TOPIC_PATHS = ['/signal', '/computed', '/effect', '/inputs'];
   imports: [RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.html',
   changeDetection: ChangeDetectionStrategy.Eager,
-  styleUrls: ['./app.css'],
+  styleUrls: ['./app.scss'],
 })
 export class App {
   private router = inject(Router);

@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
   imports: [FormsModule],
   templateUrl: './control-flow.html',
   changeDetection: ChangeDetectionStrategy.Eager,
-  styleUrl: './control-flow.css',
+  styleUrl: './control-flow.scss',
 })
 export class ControlFlow {
   isChecked = signal(false);
