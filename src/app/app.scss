@@ -2,6 +2,8 @@
 .app-layout {
   display: flex;
   height: 100vh;
+  background-color: #662c06;
+
 }
 
 .app-header {
@@ -61,8 +63,7 @@
 
 .app-content {
   flex: 1; /* ✅ takes remaining width */
-  max-width: 880px;
-  margin: 2rem auto;
-  padding: 0 1.5rem;
+  min-width: 0; /* let wide content shrink instead of overflowing */
+  padding: 2rem 1.5rem;
   overflow-y: auto;
 }
