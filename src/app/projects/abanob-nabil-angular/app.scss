@@ -1,12 +1,11 @@
+@use '../../app.scss';
 // App uses ViewEncapsulation.None, so these rules are global while this page is rendered.
 
 // Kept in Tailwind's `base` layer so utility classes on buttons (bg-*, text-*) still win,
 // as the old framework's button classes did.
-@layer base {
-  button {
-    background-color: blue;
-    color: white;
-  }
+button {
+  background-color: blue;
+  color: white;
 }
 
 // Former global rule from the old styles.scss (used by the Highlighted directive).

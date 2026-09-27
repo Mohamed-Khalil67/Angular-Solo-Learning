@@ -1,0 +1,19 @@
+{
+  "tailwindCSS.experimental.configFile": "src/styles.scss",
+  "tailwindCSS.includeLanguages": {
+    "html": "html",
+    "typescript": "typescriptreact"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["class:\\s*['\"`]([^'\"`]*)['\"`]", "['\"`]([^'\"`]*)['\"`]"],
+    ["ngClass:\\s*['\"`]([^'\"`]*)['\"`]", "['\"`]([^'\"`]*)['\"`]"],
+    ["\\[class\\]=\"'([^']*)'\"", "'([^']*)'"],
+    ["\\[class\\]=\"`([^`]*)`\"", "`([^`]*)`"]
+  ],
+  "tailwindCSS.emmetCompletions": true,
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "css.lint.unknownAtRules": "ignore",
+  "scss.lint.unknownAtRules": "ignore"
+}

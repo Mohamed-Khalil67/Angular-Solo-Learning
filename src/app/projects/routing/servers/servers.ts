@@ -7,6 +7,7 @@ import { IndividualServer } from './individual-server/individual-server';
   imports: [EditServer, IndividualServer],
   selector: 'app-servers',
   templateUrl: './servers.html',
+  styleUrl: './servers.scss',
 })
 export class Servers implements OnInit {
   public servers: { id: number; name: string; status: string }[] = [];

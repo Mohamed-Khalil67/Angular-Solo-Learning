@@ -17,7 +17,7 @@
   border-right: 2px solid #c9874e; /* ✅ right border instead */
   width: 220px; /* fixed sidebar width */
   min-height: 100vh; /* full height */
-  overflow-y: scroll;
+  overflow-y: auto; /* scrollbar only when the links don't fit */
 }
 
 .tab-nav {
@@ -64,6 +64,6 @@
 .app-content {
   flex: 1; /* ✅ takes remaining width */
   min-width: 0; /* let wide content shrink instead of overflowing */
-  padding: 2rem 1.5rem;
-  overflow-y: auto;
+  background: var(--bg-page); /* fill the whole area, no layout background showing through */
+  overflow-y: auto; /* scroll only when a page is taller than the screen */
 }

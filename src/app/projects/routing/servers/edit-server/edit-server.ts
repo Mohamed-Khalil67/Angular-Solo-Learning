@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-edit-server',
   imports: [FormsModule],
   templateUrl: './edit-server.html',
+  styleUrl: './edit-server.scss',
 })
 export class EditServer implements OnInit {
   private serverService = inject(ServersService);
@@ -30,5 +31,6 @@ export class EditServer implements OnInit {
         status: this.serverStatus,
       });
     }
+    console.log(this.server);
   }
 }
