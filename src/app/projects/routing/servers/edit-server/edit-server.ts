@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ServersService } from '../servers.service';
-import { ServerModel } from '../server.model';
+import { IServer } from '../server.model';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 export class EditServer implements OnInit {
   private serverService = inject(ServersService);
 
-  server: ServerModel | undefined;
+  server!: IServer;
   serverName = '';
   serverStatus = '';
 

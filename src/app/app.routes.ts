@@ -46,6 +46,10 @@ export const routes: Routes = [
     loadComponent: () => import('./batcher/batcher').then((c) => c.Batcher),
   },
   {
+    path: 'observable',
+    loadComponent: () => import('./observable/gallery/gallery').then((c) => c.Gallery),
+  },
+  {
     path: 'projects/abanob-nabil-angular',
     loadComponent: () => import('./projects/abanob-nabil-angular/app').then((c) => c.App),
   },

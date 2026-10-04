@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ServerModel } from '../server.model';
+import { IServer } from '../server.model';
 import { ServersService } from '../servers.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { ServersService } from '../servers.service';
   styleUrl: './individual-server.scss',
 })
 export class IndividualServer implements OnInit {
-  server: ServerModel | undefined;
+  server!: IServer;
   serversService = inject(ServersService)
   ngOnInit() {
     this.server = this.serversService.getServer(1);

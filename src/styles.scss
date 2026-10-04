@@ -1,9 +1,13 @@
-
 /* ── Reset & base ─────────────────────────────────────────── */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+:root {
+  --bg-page: #f2e3d5; /* Light nescafe color */
+  --text-primary: #3d2b1a;
 }
 
 body {

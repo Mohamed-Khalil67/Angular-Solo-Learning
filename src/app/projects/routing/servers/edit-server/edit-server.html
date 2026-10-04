@@ -1,13 +1,13 @@
 
 <div class="flex flex-col gap-1">
   <label for="name" class="text-sm font-medium text-slate-700">Server Name = {{ serverName }}</label>
-  <input type="text" id="name" class="rounded-md border border-slate-300 bg-white px-3 py-2 text-slate-800 focus:border-blue-500 focus:outline-2 focus:outline-blue-500/30"  [(ngModel)]="serverName">
+  <input type="text" id="name" class="rounded-md border border-slate-300 bg-white px-3 py-2 text-slate-800"  [(ngModel)]="serverName">
 </div>
 
 
 <div class="flex flex-col gap-1">
   <label for="status" class="text-sm font-medium text-slate-700">Server Status = {{ serverStatus }}</label>
-  <select type="text" id="status" class="rounded-md border border-slate-300 bg-white px-3 py-2 text-slate-800 focus:border-blue-500 focus:outline-2 focus:outline-blue-500/30"  [(ngModel)]="serverStatus">
+  <select type="text" id="status" class="rounded-md border border-slate-300 bg-white px-3 py-2 text-slate-800"  [(ngModel)]="serverStatus">
     <option value="online">Online</option>
     <option value="Offline">Offline</option>
   </select>

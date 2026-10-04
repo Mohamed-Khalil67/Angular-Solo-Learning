@@ -1,1 +1,5 @@
-<p>user works!</p>
+<p>User with ID {{ user()!.id }} loaded</p>
+<p>User name is {{ user()!.name }}</p>
+<hr>
+
+<a [routerLink]="['/projects/routing/user',20,'Ahmed']">Load Ahmed</a>

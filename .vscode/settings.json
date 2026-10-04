@@ -1,5 +1,5 @@
 {
-  "tailwindCSS.experimental.configFile": "src/styles.scss",
+  "tailwindCSS.experimental.configFile": "src/tailwind.css",
   "tailwindCSS.includeLanguages": {
     "html": "html",
     "typescript": "typescriptreact"
