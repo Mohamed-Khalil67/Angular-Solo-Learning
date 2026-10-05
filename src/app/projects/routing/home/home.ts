@@ -8,11 +8,15 @@ import { Router } from '@angular/router';
   styleUrl: './home.scss',
 })
 export class Home {
-
   private readonly router = inject(Router);
 
-  onLoadServers(){
+  onLoadServers(id: number) {
     // navigate to servers page
-    this.router.navigate(['/projects/routing/servers']).then(() => {});
+    this.router
+      .navigate(['/projects/routing/servers', id, 'edit'], {
+        queryParams: { allowEdit: 1 },
+        fragment: 'loading',
+      })
+      .then(() => {});
   }
 }

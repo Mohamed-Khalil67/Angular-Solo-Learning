@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { IServer } from '../server.model';
 import { ServersService } from '../servers.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   imports: [],
@@ -10,8 +11,16 @@ import { ServersService } from '../servers.service';
 })
 export class IndividualServer implements OnInit {
   server!: IServer;
-  serversService = inject(ServersService)
+  private readonly activatedRoute = inject(ActivatedRoute);
+  serversService = inject(ServersService);
   ngOnInit() {
-    this.server = this.serversService.getServer(1);
+    let id: number = this.activatedRoute.snapshot.params['id'];
+    console.log('ID value:', id);
+    console.log('ID type:', typeof id); // <--- This is the smoking gun!
+    this.server = this.serversService.getServer(id);
+
+    this.activatedRoute.params.subscribe((params) => {
+      this.server = this.serversService.getServer(+params['id']);
+    });
   }
 }
