@@ -14,9 +14,9 @@ export class IndividualServer implements OnInit {
   private readonly activatedRoute = inject(ActivatedRoute);
   serversService = inject(ServersService);
   ngOnInit() {
-    let id: number = this.activatedRoute.snapshot.params['id'];
-    console.log('ID value:', id);
-    console.log('ID type:', typeof id); // <--- This is the smoking gun!
+    let id: number = +this.activatedRoute.snapshot.params['id'];
+    // console.log('ID value:', id);
+    // console.log('ID type:', typeof id);
     this.server = this.serversService.getServer(id);
 
     this.activatedRoute.params.subscribe((params) => {

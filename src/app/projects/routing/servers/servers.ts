@@ -1,11 +1,10 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ServersService } from './servers.service';
 import { EditServer } from './edit-server/edit-server';
-import { IndividualServer } from './individual-server/individual-server';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  imports: [EditServer, IndividualServer, RouterLink],
+  imports: [EditServer, RouterLink],
   selector: 'app-servers',
   templateUrl: './servers.html',
   styleUrl: './servers.scss',
