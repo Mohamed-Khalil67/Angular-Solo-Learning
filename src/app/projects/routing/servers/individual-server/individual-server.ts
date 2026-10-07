@@ -1,7 +1,7 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
 import { IServer } from '../server.model';
 import { ServersService } from '../servers.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   imports: [],
@@ -10,17 +10,23 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './individual-server.scss',
 })
 export class IndividualServer implements OnInit {
-  server!: IServer;
-  private readonly activatedRoute = inject(ActivatedRoute);
-  serversService = inject(ServersService);
-  ngOnInit() {
-    let id: number = +this.activatedRoute.snapshot.params['id'];
-    // console.log('ID value:', id);
-    // console.log('ID type:', typeof id);
-    this.server = this.serversService.getServer(id);
+  server = signal<IServer | null>(null);
 
+  private readonly activatedRoute = inject(ActivatedRoute);
+  private readonly router = inject(Router);
+  serversService = inject(ServersService);
+
+  ngOnInit() {
     this.activatedRoute.params.subscribe((params) => {
-      this.server = this.serversService.getServer(+params['id']);
+      const id = +params['id'];
+      if (id) {
+        // 2. Update the signal using .set()
+        this.server.set(this.serversService.getServer(id));
+      }
     });
+  }
+
+  onEdit() {
+    this.router.navigate(['edit'], { relativeTo: this.activatedRoute });
   }
 }

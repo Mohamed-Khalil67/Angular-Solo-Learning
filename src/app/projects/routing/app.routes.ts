@@ -21,17 +21,20 @@ export const routes: Routes = [
     path: 'servers',
     component: Servers,
     title: 'Servers',
+    children: [
+      {
+        path: ':id',
+        component: IndividualServer,
+        title: 'Individual Server',
+      },
+      {
+        path: ':id/edit',
+        component: EditServer,
+        title: 'Edit Server',
+      },
+    ],
   },
-  {
-    path: 'servers/:id',
-    component: IndividualServer,
-    title: 'Individual Server',
-  },
-  {
-    path: 'servers/:id/edit',
-    component: EditServer,
-    title: 'Edit Server',
-  },
+
   {
     path: 'users',
     component: Users,

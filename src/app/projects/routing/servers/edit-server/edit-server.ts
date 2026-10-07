@@ -13,6 +13,7 @@ import { ActivatedRoute, ActivatedRouteSnapshot, Params } from '@angular/router'
 export class EditServer implements OnInit {
   private readonly serverService = inject(ServersService);
   private readonly activatedRoute = inject(ActivatedRoute);
+
   server!: IServer;
   serverName = '';
   serverStatus = '';
@@ -23,17 +24,20 @@ export class EditServer implements OnInit {
 
     this.activatedRoute.queryParams.subscribe((query: Params) => {
       console.log(query);
+      const id = +query['id'];
+      this.server = this.serverService.getServer(id);
+      if (this.server) {
+        this.serverName = this.server.name;
+        this.serverStatus = this.server.status;
+      }
     });
 
     this.activatedRoute.fragment.subscribe((fragment) => {
       console.log(fragment);
     });
 
-    this.server = this.serverService.getServer(1);
-    if (this.server) {
-      this.serverName = this.server.name;
-      this.serverStatus = this.server.status;
-    }
+
+
   }
 
   onUpdateServer(): void {

@@ -15,7 +15,6 @@ export class Live {
   private destroyRef = inject(DestroyRef);
 
   constructor() {
-    this.sub;
   }
 
   start() {

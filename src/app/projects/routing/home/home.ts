@@ -1,5 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ServersService } from '../servers/servers.service';
+import { IServer } from '../servers/server.model';
 
 @Component({
   imports: [],
@@ -7,8 +9,13 @@ import { Router } from '@angular/router';
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
-export class Home {
+export class Home implements OnInit {
   private readonly router = inject(Router);
+  private serversService = inject(ServersService);
+  servers: IServer[] = [];
+  ngOnInit() {
+    this.servers = this.serversService.getServers();
+  }
 
   onLoadServers(id: number) {
     // navigate to servers page
