@@ -9,8 +9,8 @@
   <label for="status" class="text-sm font-medium text-slate-700">Server Status = {{ serverStatus }}</label>
   <select type="text" id="status" class="rounded-md border border-slate-300 bg-white px-3 py-2 text-slate-800"  [(ngModel)]="serverStatus">
     <option value="online">Online</option>
-    <option value="Offline">Offline</option>
+    <option value="offline">Offline</option>
   </select>
 </div>
 
-<button class="bg-amber-500 text-black p-5 rounded cursor-pointer hover:bg-amber-50 border-2 m-4" (click)="onUpdateServer()">Update Server</button>
+<button class="bg-amber-500 text-black p-5 rounded cursor-pointer hover:bg-amber-50 border-2 m-4 disabled:bg-blue-900" [disabled]="!allowEdit" (click)="onUpdateServer()">Update Server</button>

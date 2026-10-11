@@ -5,6 +5,7 @@ import { Users } from './users/users';
 import { User } from './users/user/user';
 import { EditServer } from './servers/edit-server/edit-server';
 import { IndividualServer } from './servers/individual-server/individual-server';
+import { PageNotFound } from './page-not-found/page-not-found';
 
 export const routes: Routes = [
   {
@@ -44,5 +45,14 @@ export const routes: Routes = [
     path: 'user/:id/:name',
     component: User,
     title: 'User',
+  },
+  {
+    path: 'not-found',
+    component: PageNotFound,
+    title: 'Page not found',
+  },
+  {
+    path: '**',
+    redirectTo: 'not-found',
   },
 ];

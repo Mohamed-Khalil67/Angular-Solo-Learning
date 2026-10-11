@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { IServer } from '../server.model';
 import { ServersService } from '../servers.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -27,6 +27,12 @@ export class IndividualServer implements OnInit {
   }
 
   onEdit() {
-    this.router.navigate(['edit'], { relativeTo: this.activatedRoute });
+    // this.router.navigate(['edit'], {
+    //   queryParams: { id: 1 },
+    // });
+    this.router.navigate(['edit'], {
+      relativeTo: this.activatedRoute,
+      queryParamsHandling: 'preserve',
+    }); // take the url and add to it edit
   }
 }

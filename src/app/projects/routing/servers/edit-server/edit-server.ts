@@ -17,14 +17,15 @@ export class EditServer implements OnInit {
   server!: IServer;
   serverName = '';
   serverStatus = '';
+  allowEdit: boolean = false;
 
   ngOnInit(): void {
     // console.log(this.activatedRoute.snapshot.queryParams);
     // console.log(this.activatedRoute.snapshot.fragment);
 
-    this.activatedRoute.queryParams.subscribe((query: Params) => {
-      console.log(query);
-      const id = +query['id'];
+    this.activatedRoute.params.subscribe((params: Params) => {
+      console.log('Params', params);
+      const id = +params['id'];
       this.server = this.serverService.getServer(id);
       if (this.server) {
         this.serverName = this.server.name;
@@ -32,12 +33,14 @@ export class EditServer implements OnInit {
       }
     });
 
+    this.activatedRoute.queryParams.subscribe((query: Params) => {
+      console.log('Query Params', query);
+      this.allowEdit = query['allowEdit'] === '1';
+    });
+
     this.activatedRoute.fragment.subscribe((fragment) => {
       console.log(fragment);
     });
-
-
-
   }
 
   onUpdateServer(): void {
