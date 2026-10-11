@@ -6,6 +6,8 @@ import { User } from './users/user/user';
 import { EditServer } from './servers/edit-server/edit-server';
 import { IndividualServer } from './servers/individual-server/individual-server';
 import { PageNotFound } from './page-not-found/page-not-found';
+import { authGuard } from './guards/auth-guard.service';
+import { canDeactivateGuard } from './guards/can-deactivate-guard';
 
 export const routes: Routes = [
   {
@@ -22,6 +24,7 @@ export const routes: Routes = [
     path: 'servers',
     component: Servers,
     title: 'Servers',
+    canActivateChild: [authGuard],
     children: [
       {
         path: ':id',
@@ -32,6 +35,7 @@ export const routes: Routes = [
         path: ':id/edit',
         component: EditServer,
         title: 'Edit Server',
+        canDeactivate: [canDeactivateGuard],
       },
     ],
   },

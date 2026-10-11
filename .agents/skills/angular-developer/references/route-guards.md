@@ -4,7 +4,7 @@ Route guards control whether a user can navigate to or leave a route.
 
 ## Types of Guards
 
-- **`CanActivate`**: Can the user access this route? (e.g., Auth check).
+- **`CanActivate`**: Can the user access this route? (e.g., AuthService check).
 - **`CanActivateChild`**: Can the user access children of this route?
 - **`CanDeactivate`**: Can the user leave this route? (e.g., Unsaved changes).
 - **`CanMatch`**: Should this route even be considered for matching? (e.g., Feature flags). If it returns `false`, the router continues checking other routes.

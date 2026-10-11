@@ -2,3 +2,9 @@
 <p>Manage your servers and users</p>
 
 <button class="btn btn-secondary" (click)="onLoadServers(1)">Load server 1</button>
+
+@if (authService.isLoggedIn) {
+  <button class="btn btn-warning" (click)="logout()">Logout</button>
+} @else {
+  <button class="btn btn-success" (click)="login()">Login</button>
+}

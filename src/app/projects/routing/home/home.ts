@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServersService } from '../servers/servers.service';
 import { IServer } from '../servers/server.model';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   imports: [],
@@ -10,6 +11,7 @@ import { IServer } from '../servers/server.model';
   styleUrl: './home.scss',
 })
 export class Home implements OnInit {
+  readonly authService = inject(AuthService);
   private readonly router = inject(Router);
   private serversService = inject(ServersService);
   servers: IServer[] = [];
@@ -25,5 +27,14 @@ export class Home implements OnInit {
         fragment: 'loading',
       })
       .then(() => {});
+  }
+
+  login() {
+    console.log(this.authService.isLoggedIn);
+    this.authService.login();
+  }
+  logout() {
+    console.log(this.authService.isLoggedIn);
+    this.authService.logout();
   }
 }
