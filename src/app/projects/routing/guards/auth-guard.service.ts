@@ -57,5 +57,8 @@ export const authGuard: CanActivateFn & CanActivateChildFn = () => {
   }
 
   // Redirect cleanly to /home if not authenticated
-  return new RedirectCommand(router.parseUrl('/home'));
+  return router.parseUrl('/projects/routing');
+  // the RedirectCommand,
+  // router.navigate(['/projects/routing']);
+  //     return false;
 };

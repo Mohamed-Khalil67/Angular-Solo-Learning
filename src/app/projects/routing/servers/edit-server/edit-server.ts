@@ -57,7 +57,7 @@ export class EditServer implements OnInit, CanComponentDeactivate {
 
     this.changesSaved = true;
     this.router.navigate(['../'], { relativeTo: this.activatedRoute });
-    // go back once while preserving the route url already existing
+    // go back one step backwards, while preserving the route url already existing
   }
 
   canDeactivate(): boolean {
