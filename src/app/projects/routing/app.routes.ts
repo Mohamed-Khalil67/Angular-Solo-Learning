@@ -7,7 +7,8 @@ import { EditServer } from './servers/edit-server/edit-server';
 import { IndividualServer } from './servers/individual-server/individual-server';
 import { PageNotFound } from './page-not-found/page-not-found';
 import { authGuard } from './guards/auth-guard.service';
-import { canDeactivateGuard } from './guards/can-deactivate-guard';
+import { CanDeactivateGuard } from './guards/can-deactivate-guard';
+import { ErrorPage } from '../error-page/error-page';
 
 export const routes: Routes = [
   {
@@ -35,7 +36,7 @@ export const routes: Routes = [
         path: ':id/edit',
         component: EditServer,
         title: 'Edit Server',
-        canDeactivate: [canDeactivateGuard],
+        canDeactivate: [CanDeactivateGuard],
       },
     ],
   },
@@ -52,7 +53,8 @@ export const routes: Routes = [
   },
   {
     path: 'not-found',
-    component: PageNotFound,
+    component: ErrorPage,
+    data: { message: "Message = Page Not Found from route" },
     title: 'Page not found',
   },
   {
