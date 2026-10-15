@@ -3,9 +3,10 @@ import { RecipeList } from "./recipe-list/recipe-list";
 import { RecipeDetails } from "./recipe-details/recipe-details";
 import { Recipe } from './recipe.model';
 import { RecipeService } from '../services/recipe.service';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
-  imports: [RecipeList, RecipeDetails],
+  imports: [RecipeList, RouterOutlet],
   selector: 'app-recipes',
   styleUrl: './recipes.scss',
   templateUrl: './recipes.html',
@@ -15,7 +16,7 @@ export class Recipes implements OnInit {
 
   private recipeService = inject(RecipeService);
   ngOnInit() {
-    this.recipeService.recipeSelected.subscribe((recipe:Recipe) => this.selectedRecipe = recipe);
+    this.recipeService.recipeSelected.subscribe((recipe: Recipe) => (this.selectedRecipe = recipe));
     // the selectedRecipe will receive the recipe from the service that is sending an event recipe.
   }
 }

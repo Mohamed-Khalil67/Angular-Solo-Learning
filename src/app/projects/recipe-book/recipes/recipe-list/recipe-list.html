@@ -6,7 +6,7 @@
 </div>
 <br>
 <div class="grid grid-cols-3 gap-x-6">
-    @for (recipeItem of recipes; track $index) {
-    <app-recipe-item class="mb-4" [recipe]="recipeItem"></app-recipe-item>
+    @for (recipeItem of recipes(); track $index) {
+    <app-recipe-item class="mb-4" [recipe]="recipeItem" [index]="$index"></app-recipe-item>
     }
 </div>

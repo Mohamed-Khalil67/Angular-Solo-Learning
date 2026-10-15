@@ -8,7 +8,8 @@ import { IndividualServer } from './servers/individual-server/individual-server'
 import { PageNotFound } from './page-not-found/page-not-found';
 import { authGuard } from './guards/auth-guard.service';
 import { CanDeactivateGuard } from './guards/can-deactivate-guard';
-import { ErrorPage } from '../error-page/error-page';
+import { ErrorPage } from './error-page/error-page';
+import { ServerResolverService } from './guards/server.resolver.service';
 
 export const routes: Routes = [
   {
@@ -31,6 +32,7 @@ export const routes: Routes = [
         path: ':id',
         component: IndividualServer,
         title: 'Individual Server',
+        resolve: {server: ServerResolverService}
       },
       {
         path: ':id/edit',

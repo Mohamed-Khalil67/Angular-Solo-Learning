@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, output } from '@angular/core';
+import { Component, inject, OnInit, output, signal } from '@angular/core';
 import { RecipeItem } from "./recipe-item/recipe-item";
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../../services/recipe.service';
@@ -11,10 +11,10 @@ import { RecipeService } from '../../services/recipe.service';
 })
 export class RecipeList implements OnInit {
   recipeService = inject(RecipeService);
-  recipes: Recipe[] = [];
+  recipes = signal<Recipe[]>([]);
 
   ngOnInit(): void {
-    this.recipes = this.recipeService.getRecipes();
+    this.recipes.update((current) => [...current, ...this.recipeService.getRecipes()]);
     console.log(this.recipes);
   }
 

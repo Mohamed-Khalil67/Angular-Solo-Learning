@@ -1,7 +1,7 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { IServer } from '../server.model';
 import { ServersService } from '../servers.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Data, Router } from '@angular/router';
 
 @Component({
   imports: [],
@@ -17,13 +17,17 @@ export class IndividualServer implements OnInit {
   serversService = inject(ServersService);
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe((params) => {
-      const id = +params['id'];
-      if (id) {
-        // 2. Update the signal using .set()
-        this.server.set(this.serversService.getServer(id));
-      }
-    });
+    // this.activatedRoute.params.subscribe((params) => {
+    //   const id = +params['id'];
+    //   if (id) {
+    //     // 2. Update the signal using .set()
+    //     this.server.set(this.serversService.getServer(id));
+    //   }
+    // });
+    this.activatedRoute.data.subscribe((data:Data) => {
+      console.log('Route data received:',data)
+      this.server.set(data['server']);
+    })
   }
 
   onEdit() {

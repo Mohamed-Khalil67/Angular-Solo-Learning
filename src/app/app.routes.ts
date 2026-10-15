@@ -56,6 +56,7 @@ export const routes: Routes = [
   {
     path: 'projects/recipe-book',
     loadComponent: () => import('./projects/recipe-book/app').then((c) => c.App),
+    loadChildren: () => import('./projects/recipe-book/app.routes').then((m) => m.routes),
   },
   {
     path: 'projects/routing',

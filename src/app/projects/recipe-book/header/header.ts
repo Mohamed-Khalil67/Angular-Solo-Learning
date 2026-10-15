@@ -1,7 +1,8 @@
 import { Component, ElementRef, output, signal, viewChild } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  imports: [],
+  imports: [RouterLink],
   selector: 'app-header',
   styleUrl: './header.scss',
   templateUrl: './header.html',
@@ -11,8 +12,7 @@ import { Component, ElementRef, output, signal, viewChild } from '@angular/core'
   },
 })
 export class Header {
-
-  featureSelected = output<string>()
+  featureSelected = output<string>();
 
   // Menu state (replaces Bootstrap's collapse/dropdown JavaScript)
   navOpen = signal(false);
@@ -20,7 +20,7 @@ export class Header {
   private manage = viewChild.required<ElementRef<HTMLElement>>('manage');
 
   onSelect(feature: string) {
-    this.featureSelected.emit(feature)
+    this.featureSelected.emit(feature);
   }
 
   closeManageOnOutsideClick(event: MouseEvent) {

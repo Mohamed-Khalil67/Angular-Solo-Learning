@@ -8,10 +8,10 @@
         <div [class.hidden]="!navOpen()" class="w-full lg:flex lg:w-auto lg:grow lg:items-center" id="navbarSupportedContent">
             <ul class="mt-2 mb-2 flex flex-col lg:my-0 lg:flex-row">
                 <li>
-                    <a class="block cursor-pointer py-2 text-white lg:px-2" aria-current="page" role="button" tabindex="0" (click)="onSelect('recipe')">Recipes</a>
+                    <a class="block cursor-pointer py-2 text-white lg:px-2" aria-current="page" role="button" tabindex="0" [routerLink]="'recipes'">Recipes</a>
                 </li>
                 <li>
-                    <a class="block cursor-pointer py-2 text-white/55 hover:text-white/75 lg:px-2" role="button" tabindex="0" (click)="onSelect('shopping-list')">Shopping List</a>
+                    <a class="block cursor-pointer py-2 text-white/55 hover:text-white/75 lg:px-2" role="button" tabindex="0" [routerLink]="'shopping-list'">Shopping List</a>
                 </li>
                 <li #manage class="relative">
                     <a class="block cursor-pointer py-2 text-white/55 hover:text-white/75 lg:px-2 after:ml-1 after:inline-block after:border-x-4 after:border-t-4 after:border-x-transparent after:border-t-current after:align-middle" role="button" tabindex="0"
